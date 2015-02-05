@@ -38,6 +38,9 @@ import (
 // advisory locks.  In particular, closing any other file descriptor for the
 // same file will release the lock prematurely.
 //
+// On Windows, LockFileEx is used if possible (for exclusive locking),
+// nad falls back to file creation locking otherwise.
+//
 // Attempting to lock a file that is already locked by the current process
 // has undefined behavior.
 //
