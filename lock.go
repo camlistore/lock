@@ -50,9 +50,7 @@ func Lock(name string) (io.Closer, error) {
 var lockFn = lockPortable
 
 // Portable version not using fcntl. Doesn't handle crashes as gracefully,
-// since it can leave stale lock files.
-// TODO: write pid of owner to lock file and on race see if pid is
-// still alive?
+// since it can leave stale lock files, but handles that, too.
 func lockPortable(name string) (io.Closer, error) {
 	absName, err := filepath.Abs(name)
 	if err != nil {
