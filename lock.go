@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+// This package is deprecated. It has been replaced with https://go4.org/lock
 package lock
 
 import (
